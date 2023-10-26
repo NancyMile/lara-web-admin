@@ -23,7 +23,7 @@ class AdminController extends Controller
     }
 
     //user profile
-    public function profile(Request $request)
+    public function profile()
     {
         //find logged user
         $id = Auth::user()->id;
