@@ -9,6 +9,11 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title">Change Password</h4>
+                        @if (count($errors))
+                            @foreach ($errors->all() as $error )
+                                <p class="alert alert-danger alert-dismissible fade show text-center">{{$error}}</p>
+                            @endforeach
+                        @endif
                         <form method="POST" action="{{ route('update.password') }}">
                             @csrf
                             <div class="row mb-3">
