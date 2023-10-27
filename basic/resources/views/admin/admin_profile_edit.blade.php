@@ -9,7 +9,8 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title">Edit Profile</h4>
-                        <form>
+                        <form method="POST" action="{{ route('store.profile') }}" enctype="multipart/form-data">
+                            @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
@@ -19,7 +20,7 @@
                             <div class="row mb-3">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="email" placeholder="Email" id="email" name="name" value="{{ $editData->email }}">
+                                    <input class="form-control" type="email" placeholder="Email" id="email" name="email" value="{{ $editData->email }}">
                                 </div>
                             </div>
                             <div class="row mb-3">
