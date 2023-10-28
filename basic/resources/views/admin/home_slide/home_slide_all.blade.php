@@ -24,18 +24,24 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="homeSlide" class="col-sm-2 col-form-label">HomeSlide</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" placeholder="Home Slide" id="homeSlide" name="homeSlide" value="{{ $homeSlide->home_slide }}">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
                                 <label for="videoUrl" class="col-sm-2 col-form-label">Video Url</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" id="videoUrl" name="videoUrl" value="{{ $homeSlide->video_url }}">
                                 </div>
                             </div>
-                            <input type="submit" value="Save" class="btn btn-info waves-effect waves-light">
+                            <div class="row mb-3">
+                                <label for="homeSlide" class="col-sm-2 col-form-label">Image Slide</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="file" placeholder="Home Slide" id="homeSlide" name="homeSlide" value="{{ $homeSlide->home_slide }}" accept=".png,.jpg">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="display_image" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <img class="rounded avatar-lg mt-3" id="display_image" src=" {{ !empty($homeSlide->home_slide) ? url('upload/home_slider/'.$homeSlide->home_slide) : url('upload/no_image.jpg') }}" alt="Card image cap">
+                                </div>
+                            </div>
+                            <input type="submit" value="Update Slide" class="btn btn-info waves-effect waves-light">
                         </form>
                         <!-- end row -->
                     </div>
