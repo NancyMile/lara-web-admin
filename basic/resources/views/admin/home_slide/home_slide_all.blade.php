@@ -9,8 +9,9 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title">Home Slide</h4>
-                        <form method="POST" action="{{ route('store.profile') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.slide') }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $homeSlide->id }}">
                             <div class="row mb-3">
                                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
@@ -38,7 +39,7 @@
                             <div class="row mb-3">
                                 <label for="display_image" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img class="rounded avatar-lg mt-3" id="display_image" src=" {{ !empty($homeSlide->home_slide) ? url('upload/home_slider/'.$homeSlide->home_slide) : url('upload/no_image.jpg') }}" alt="Card image cap">
+                                    <img class="rounded avatar-lg mt-3" id="display_image" src=" {{ !empty($homeSlide->home_slide) ? url($homeSlide->home_slide) : url('upload/no_image.jpg') }}" alt="Card image cap">
                                 </div>
                             </div>
                             <input type="submit" value="Update Slide" class="btn btn-info waves-effect waves-light">
