@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Auth\Events\Logout;
@@ -45,6 +46,11 @@ Route::controller(AdminController::class)->group(function(){
 Route::controller(HomeSliderController::class)->group(function(){
     Route::get('home/slider','homeSlider')->name('home.slide');
     Route::post('update/slider','updateSlider')->name('update.slide');
+});
+
+//about page all route
+Route::controller(AboutController::class)->group(function(){
+    Route::get('about/page','aboutPage')->name('about.page');
 });
 
 require __DIR__.'/auth.php';
