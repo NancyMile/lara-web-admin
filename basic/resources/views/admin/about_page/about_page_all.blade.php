@@ -9,7 +9,7 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title">About Page</h4>
-                        <form method="POST" action="{{ route('about.page') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.about') }}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{ $aboutPage->id }}">
                             <div class="row mb-3">
@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="AboutImage" class="col-sm-2 col-form-label">AboutImage</label>
+                                <label for="aboutImage" class="col-sm-2 col-form-label">About Image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" placeholder="About Image" id="AboutImage" name="AboutImage" value="{{ $aboutPage->about_image }}" accept=".png,.jpg">
+                                    <input class="form-control" type="file" placeholder="About Image" id="aboutImage" name="aboutImage" value="{{ $aboutPage->about_image }}" accept=".png,.jpg">
                                 </div>
                             </div>
                             <div class="row mb-3">
