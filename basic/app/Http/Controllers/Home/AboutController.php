@@ -64,4 +64,10 @@ class AboutController extends Controller
         $aboutPage = About::find(1);
         return view('frontend.about_page',compact('aboutPage'));
     }
+
+    //frontend about multiImages
+    public function multiImages()
+    {
+
+    }
 }
