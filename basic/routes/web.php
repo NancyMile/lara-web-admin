@@ -55,6 +55,7 @@ Route::controller(AboutController::class)->group(function(){
     Route::get('about','homeAbout')->name('home.about'); //frontend
     Route::get('about/multi/image','aboutMultiImage')->name('about.multi.image'); //frontend
     Route::post('store/multi/images','storeMultiImages')->name('store.multi.image');//admin backend
+    Route::get('all/multi/image','allMultiImage')->name('all.multi.image'); //admin backend theme
 });
 
 require __DIR__.'/auth.php';

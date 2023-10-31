@@ -83,7 +83,7 @@ class AboutController extends Controller
             $imageName = hexdec(uniqid()).'.'.$multiImage->getClientOriginalExtension();
             //resize image to 636 x 852
             Image::make($multiImage)->resize(220,220)->save('upload/multi/'.$imageName);
-            $imageUrl = 'upload/home_about/'.$imageName;
+            $imageUrl = 'upload/multi/'.$imageName;
 
             //insert images
             MultiImage::insert([
@@ -96,5 +96,11 @@ class AboutController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+    //admin display the multi Images
+    public function allMultiImage()
+    {
+        $allMultiImage =MultiImage::all();
+        return view('admin.about_page.all_multi_image',compact('allMultiImage'));
     }
 }
