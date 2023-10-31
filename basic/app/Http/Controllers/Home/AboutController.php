@@ -103,4 +103,36 @@ class AboutController extends Controller
         $allMultiImage =MultiImage::all();
         return view('admin.about_page.all_multi_image',compact('allMultiImage'));
     }
+
+    public  function editMultiImage($id)
+    {
+        $multiImage = MultiImage::findOrFail($id);
+        return view('admin.about_page.edit_multi_image', compact('multiImage'));
+    }
+
+    public  function updateMultiImage(Request $request)
+    {
+        $multiImageId = $request->id;
+
+        //check image
+        if($request->file('multiImage'))
+        {
+            $image = $request->file('multiImage');
+            //generate new name
+            $imageName = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            //resize image to 636 x 852
+            Image::make($image)->resize(220,220)->save('upload/multi/'.$imageName);
+            $imageUrl = 'upload/multi/'.$imageName;
+
+            //find the slide to be updated
+            MultiImage::find($multiImageId)->update([
+                'multi_image' => $imageUrl,
+            ]);
+            $notification = array(
+                'message' => 'Multi image updated successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.multi.image')->with($notification);
+        }
+    }
 }
