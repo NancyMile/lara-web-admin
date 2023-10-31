@@ -58,6 +58,7 @@ Route::controller(AboutController::class)->group(function(){
     Route::get('all/multi/image','allMultiImage')->name('all.multi.image'); //admin backend theme
     Route::get('edit/multi/image/{id}','editMultiImage')->name('edit.multi.image'); //admin backend theme
     Route::post('update/multi/image','updateMultiImage')->name('update.multi.image'); //admin backend theme
+    Route::get('delete/multi/image/{id}','deleteMultiImage')->name('delete.multi.image'); //admin backend theme
 });
 
 require __DIR__.'/auth.php';
