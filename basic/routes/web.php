@@ -54,6 +54,7 @@ Route::controller(AboutController::class)->group(function(){
     Route::post('update/about','updateAbout')->name('update.about');
     Route::get('about','homeAbout')->name('home.about'); //frontend
     Route::get('about/multi/image','aboutMultiImage')->name('about.multi.image'); //frontend
+    Route::post('store/multi/images','storeMultiImages')->name('store.multi.image');//admin backend
 });
 
 require __DIR__.'/auth.php';

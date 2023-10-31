@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\MultiImage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -66,8 +68,33 @@ class AboutController extends Controller
     }
 
     //frontend about multiImages
-    public function multiImages()
+    public function aboutMultiImage()
     {
+        return view('admin.about_page.multiImage');
+    }
 
+    //admin store multi images
+    public function storeMultiImages(Request $request)
+    {
+        $image = $request->file('multiImage');
+
+        foreach ($image as $multiImage) {
+            //generate new name
+            $imageName = hexdec(uniqid()).'.'.$multiImage->getClientOriginalExtension();
+            //resize image to 636 x 852
+            Image::make($multiImage)->resize(220,220)->save('upload/multi/'.$imageName);
+            $imageUrl = 'upload/home_about/'.$imageName;
+
+            //insert images
+            MultiImage::insert([
+                'multi_image' => $imageUrl,
+                'created_at' => Carbon::now(),
+            ]);
+        }
+        $notification = array(
+            'message' => 'Images saved successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }
