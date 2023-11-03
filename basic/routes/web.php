@@ -69,5 +69,6 @@ Route::controller(PortfolioController::class)->group(function(){
     Route::post('store/portfolio','storePortfolio')->name('store.portfolio'); //admin backend
     Route::get('edit/portfolio/{id}','editPortfolio')->name('edit.portfolio'); //admin backend
     Route::post('update/portfolio','updatePortfolio')->name('update.portfolio'); //admin backend
+    Route::get('delete/portfolio/{id}','deletePortfolio')->name('delete.portfolio'); //admin backend
 });
 require __DIR__.'/auth.php';
