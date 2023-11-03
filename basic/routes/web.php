@@ -65,6 +65,8 @@ Route::controller(AboutController::class)->group(function(){
 //portfolio all route
 Route::controller(PortfolioController::class)->group(function(){
     Route::get('portfolio','allPortfolio')->name('all.portfolio');
+    Route::get('add/portfolio','addPortfolio')->name('add.portfolio');
+    Route::post('store/portfolio','storePortfolio')->name('store.portfolio'); //admin backend
 
 });
 require __DIR__.'/auth.php';
