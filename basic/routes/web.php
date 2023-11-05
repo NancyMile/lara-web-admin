@@ -78,7 +78,9 @@ Route::controller(BlogCategoryController::class)->group(function(){
     Route::get('all/blog/category','allBlogCategory')->name('all.blog.category'); //admin backend
     Route::get('add/blog/category','addBlogCategory')->name('add.blog.category'); //admin backend
     Route::post('store/blog/category','storeBlogCategory')->name('store.blog.category'); //admin backend
-
+    Route::get('edit/blog/category/{id}','editBlogCategory')->name('edit.blog.category'); //admin backend
+    Route::post('update/blog/category/{id}','updateBlogCategory')->name('update.blog.category'); //admin backend
+    Route::get('delete/blog/category/{id}','deleteBlogCategory')->name('delete.blog.category'); //admin backend
 });
 
 require __DIR__.'/auth.php';
