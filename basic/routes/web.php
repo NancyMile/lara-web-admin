@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\PortfolioController;
@@ -71,4 +72,10 @@ Route::controller(PortfolioController::class)->group(function(){
     Route::post('update/portfolio','updatePortfolio')->name('update.portfolio'); //admin backend
     Route::get('portfolio/details/{id}','detailsPortfolio')->name('portfolio.details'); //frontend
 });
+
+//BlogCategory all route
+Route::controller(BlogCategoryController::class)->group(function(){
+    Route::get('all/blog/category','allBlogCategory')->name('all.blog.category');
+});
+
 require __DIR__.'/auth.php';
