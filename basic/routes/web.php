@@ -89,6 +89,8 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('all/blog','allBlog')->name('all.blog'); //admin backend
     Route::get('add/blog','addBlog')->name('add.blog'); //admin backend
     Route::post('store/blog','storeBlog')->name('store.blog'); //admin backend
+    Route::get('edit/blog/{id}','editBlog')->name('edit.blog'); //admin backend
+    Route::post('update/blog/{id}','updateBlog')->name('update.blog'); //admin backend
 });
 
 

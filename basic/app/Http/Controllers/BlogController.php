@@ -62,7 +62,55 @@ class BlogController extends Controller
         }
     }
 
+    public function editBlog($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $categories = BlogCategory::orderBy('category','ASC')->get();
+        return view('admin.blog.blog_edit',compact('blog','categories'));
+    }
 
+    public function updateBlog(Request $request)
+    {
+        $blogId = $request->id;
 
+        //check image
+        if($request->file('image'))
+        {
+            $image = $request->file('image');
+            //generate new name
+            $imageName = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            //resize image to 636 x 852
+            Image::make($image)->resize(430,327)->save('upload/blog/'.$imageName);
+            $imageUrl = 'upload/blog/'.$imageName;
 
+            //find blog to be updated
+            Blog::find($blogId)->update([
+                'blog_category_id' => $request->blog_category_id,
+                'title' => $request->title,
+                'description' => $request->description,
+                'tags' => $request->tags,
+                'image' => $imageUrl,
+                'created_at' => Carbon::now()
+            ]);
+            $notification = array(
+                'message' => 'Blog updated successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.blog')->with($notification);
+        }else
+        {
+            Blog::find($blogId)->update([
+                'blog_category_id' => $request->blog_category_id,
+                'title' => $request->title,
+                'description' => $request->description,
+                'tags' => $request->tags,
+                'created_at' => Carbon::now()
+            ]);
+            $notification = array(
+                'message' => 'Blog updated successfully, no image',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.blog')->with($notification);
+        }
+    }
 }
