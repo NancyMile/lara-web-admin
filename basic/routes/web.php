@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
@@ -82,5 +83,11 @@ Route::controller(BlogCategoryController::class)->group(function(){
     Route::post('update/blog/category/{id}','updateBlogCategory')->name('update.blog.category'); //admin backend
     Route::get('delete/blog/category/{id}','deleteBlogCategory')->name('delete.blog.category'); //admin backend
 });
+
+//Blog all route
+Route::controller(BlogController::class)->group(function(){
+    Route::get('all/blog','allBlog')->name('all.blog'); //admin backend
+});
+
 
 require __DIR__.'/auth.php';
