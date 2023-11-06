@@ -36,9 +36,9 @@
                                 @foreach ( $blog as $item  )
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $item->Blog_category_id }}</td>
+                                        <td>{{ $item->blog_category_id }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td> <img src="{{ asset( $item->tags ) }}" style="width:60px; height:50px;"> </td>
+                                        <td>{{ $item->tags }}</td>
                                         <td> <img src="{{ asset( $item->image ) }}" style="width:60px; height:50px;"> </td>
                                         <td><a href="" class="btn btn-info sm" title="Edit"> <i class="fas fa-edit"></i></a>
                                             <a href="" class="btn btn-danger sm" id="delete" title="Delete"> <i class="fas fa-trash"></i></a></td>

@@ -17,7 +17,7 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title">Add Blog</h4>
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('store.blog') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label">Blog category</label>
@@ -27,8 +27,6 @@
                                         @foreach ( $categories  as $item )
                                             <option value="{{ $item->id }}">{{ $item->category }}</option>
                                         @endforeach
-
-
                                     </select>
                                 </div>
                             </div>
