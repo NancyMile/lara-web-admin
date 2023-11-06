@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 
 class BlogController extends Controller
 {
@@ -15,7 +16,10 @@ class BlogController extends Controller
 
     public function addBlog()
     {
-        return view('admin.blog.blog_add');
+        $categories = BlogCategory::orderBy('category','ASC')->get();
+        return view('admin.blog.blog_add',compact('categories'));
     }
+
+
 
 }

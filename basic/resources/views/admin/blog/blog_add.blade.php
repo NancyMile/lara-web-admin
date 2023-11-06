@@ -23,11 +23,13 @@
                                 <label for="name" class="col-sm-2 col-form-label">Blog category</label>
                                 <div class="col-sm-10">
                                     <select name="blog_category_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
+                                        <option selected="">-- Select category --</option>
+                                        @foreach ( $categories  as $item )
+                                            <option value="{{ $item->id }}">{{ $item->category }}</option>
+                                        @endforeach
+
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
