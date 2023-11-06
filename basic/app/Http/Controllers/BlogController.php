@@ -127,4 +127,12 @@ class BlogController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function detailsBlog($id)
+    {
+        $allCategories = BlogCategory::orderBy('category','ASC')->limit(8)->get();
+        $allBlogs = Blog::latest()->limit(5)->get();
+        $blog = Blog::findOrFail($id);
+        return view('frontend.blog',compact('blog','allBlogs','allCategories'));
+    }
 }
