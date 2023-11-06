@@ -93,6 +93,7 @@ Route::controller(BlogController::class)->group(function(){
     Route::post('update/blog/{id}','updateBlog')->name('update.blog'); //admin backend
     Route::get('delete/blog/{id}','deleteBlog')->name('delete.blog'); //admin backend
     Route::get('blog/details/{id}','detailsBlog')->name('blog.details'); //frontend
+    Route::get('category/blog/{id}','categoryBlog')->name('category.blog'); //frontend
 });
 
 

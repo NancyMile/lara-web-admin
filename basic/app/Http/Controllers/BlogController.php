@@ -135,4 +135,12 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         return view('frontend.blog',compact('blog','allBlogs','allCategories'));
     }
+
+    public function categoryBlog($id)
+    {
+        $allCategories = BlogCategory::orderBy('category','ASC')->limit(8)->get();
+        $allBlogs = Blog::latest()->limit(5)->get();
+        $blogPost = Blog::Where('blog_category_id',$id)->orderBy('id','DESC')->get();
+        return view('frontend.category_blog_details', compact('blogPost','allBlogs','allCategories'));
+    }
 }
