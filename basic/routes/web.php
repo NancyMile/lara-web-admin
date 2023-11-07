@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\ProfileController;
@@ -95,6 +96,12 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('blog/details/{id}','detailsBlog')->name('blog.details'); //frontend
     Route::get('category/blog/{id}','categoryBlog')->name('category.blog'); //frontend
     Route::get('blog','homeBlog')->name('home.blog'); //frontend
+});
+
+//footer all route
+Route::controller(FooterController::class)->group(function(){
+    Route::get('footer/setup','footerSetup')->name('footer.setup'); //admin backend
+    Route::post('update/footer','updateFooter')->name('update.footer'); //admin backend
 });
 
 
