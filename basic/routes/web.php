@@ -109,6 +109,8 @@ Route::controller(FooterController::class)->group(function(){
 Route::controller(ContactController::class)->group(function(){
     Route::get('contact','contact')->name('contact.me'); //frontend
     Route::post('store/contact','storeContact')->name('store.contact'); //frontend
+    Route::get('contact/messages','contactMessages')->name('contact.messages'); //backend
+    Route::get('delete/contact/{id}','deleteContact')->name('delete.contact'); //admin backend
 });
 
 
