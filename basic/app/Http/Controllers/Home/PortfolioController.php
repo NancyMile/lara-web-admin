@@ -126,4 +126,10 @@ class PortfolioController extends Controller
         $portfolio = Porfolio::findOrFail($id);
         return view('frontend.portfolio',compact('portfolio'));
     }
+
+    public function homePortfolio()
+    {
+        $portfolio = Porfolio::latest()->get();
+        return view('frontend.portfolio_all',compact('portfolio'));
+    }
 }

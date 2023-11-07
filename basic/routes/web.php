@@ -73,7 +73,9 @@ Route::controller(PortfolioController::class)->group(function(){
     Route::post('store/portfolio','storePortfolio')->name('store.portfolio'); //admin backend
     Route::get('edit/portfolio/{id}','editPortfolio')->name('edit.portfolio'); //admin backend
     Route::post('update/portfolio','updatePortfolio')->name('update.portfolio'); //admin backend
+    Route::get('delete/multi/image/{id}','deletePortfolio')->name('delete.portfolio'); //admin backend theme
     Route::get('portfolio/details/{id}','detailsPortfolio')->name('portfolio.details'); //frontend
+    Route::get('all/portfolio','homePortfolio')->name('home.portfolio'); //frontend
 });
 
 //BlogCategory all route
