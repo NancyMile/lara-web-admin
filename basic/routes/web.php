@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\PortfolioController;
@@ -102,6 +103,12 @@ Route::controller(BlogController::class)->group(function(){
 Route::controller(FooterController::class)->group(function(){
     Route::get('footer/setup','footerSetup')->name('footer.setup'); //admin backend
     Route::post('update/footer','updateFooter')->name('update.footer'); //admin backend
+});
+
+//contact all route
+Route::controller(ContactController::class)->group(function(){
+    Route::get('contact','contact')->name('contact.me'); //frontend
+    Route::post('store/contact','storeContact')->name('store.contact'); //frontend
 });
 
 
