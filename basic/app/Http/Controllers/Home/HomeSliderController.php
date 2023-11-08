@@ -9,6 +9,11 @@ use Intervention\Image\Facades\Image;
 
 class HomeSliderController extends Controller
 {
+    public function homeMain()
+    {
+        return view('frontend.index');
+    }
+
     public function homeSlider()
     {
         $homeSlide = HomeSlide::find(1);

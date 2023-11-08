@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -49,6 +49,7 @@ Route::controller(AdminController::class)->group(function(){
 
 //home slider all route
 Route::controller(HomeSliderController::class)->group(function(){
+    Route::get('/','homeMain')->name('home');
     Route::get('home/slider','homeSlider')->name('home.slide');
     Route::post('update/slider','updateSlider')->name('update.slide');
 });
