@@ -75,10 +75,10 @@
                                 @foreach ( $allBlogs as $blogs )
                                     <li class="rc__post__item">
                                         <div class="rc__post__thumb">
-                                            <a href="blog-details.html"><img src="{{ asset($blogs->image) }}" alt=""></a>
+                                            <a href="{{ route('blog.details', $blogs->id) }}"><img src="{{ asset($blogs->image) }}" alt=""></a>
                                         </div>
                                         <div class="rc__post__content">
-                                            <h5 class="title"><a href="blog-details.html">{{ $blogs->title }}</a></h5>
+                                            <h5 class="title"><a href="{{ route('blog.details', $blogs->id) }}">{{ $blogs->title }}</a></h5>
                                             <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($blogs->created_at) }}</span>
                                         </div>
                                     </li>

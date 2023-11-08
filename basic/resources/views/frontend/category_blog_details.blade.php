@@ -41,15 +41,15 @@
                     @foreach ( $blogPost as $item)
                         <div class="standard__blog__post">
                             <div class="standard__blog__thumb">
-                                <a href="blog-details.html"><img src="{{ asset($item->image) }}" alt=""></a>
-                                <a href="blog-details.html" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
+                                <a href="{{ route('blog.details', $item->id) }}><img src="{{ asset($item->image) }}" alt=""></a>
+                                <a href="{{ route('blog.details', $item->id) }}" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
                             </div>
                             <div class="standard__blog__content">
                                 <div class="blog__post__avatar">
                                     <div class="thumb"><img src="{{ asset($item->image) }}" alt=""></div>
                                     <span class="post__by">By : <a href="#">Halina Spond</a></span>
                                 </div>
-                                <h2 class="title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                <h2 class="title"><a href="{{ route('blog.details', $item->id) }}">{{ $item->title }}</a></h2>
                                 <p>{!! Str::limit($item->description, 200) !!}</p>
                                 <ul class="blog__post__meta">
                                     <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</li>
@@ -72,7 +72,7 @@
                                 @foreach ( $allBlogs as $blogs )
                                     <li class="rc__post__item">
                                         <div class="rc__post__thumb">
-                                            <a href="blog-details.html"><img src="{{ asset($blogs->image) }}" alt=""></a>
+                                            <a href="{{ route('blog.details', $blogs->id) }}"><img src="{{ asset($blogs->image) }}" alt=""></a>
                                         </div>
                                         <div class="rc__post__content">
                                             <h5 class="title"><a href="blog-details.html">{{ $blogs->title }}</a></h5>
